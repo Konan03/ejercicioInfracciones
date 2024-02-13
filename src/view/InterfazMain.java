@@ -5,12 +5,22 @@ import java.awt.*;
 
 public class InterfazMain extends JFrame {
 
+    private Banner banner;
+    private Informacion informacion;
+    private Botones botones;
+
     public InterfazMain (){
         setTitle("Infraciones LugoGod");
-        setSize(500,500);
+        setSize(500,700);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
+        banner = new Banner();
+        add(banner, BorderLayout.NORTH);
+        informacion = new Informacion();
+        add(informacion, BorderLayout.CENTER);
+        botones = new Botones();
+        add(botones, BorderLayout.SOUTH);
     }
 
 

@@ -3,6 +3,9 @@ package view;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
 
 public class Informacion extends JPanel {
 
@@ -10,7 +13,7 @@ public class Informacion extends JPanel {
 
     private JLabel idLabel, valorLabel, descripcionLabel, idCamaraLabel, operadorLabel, velocidadLabel, placaLabel, agenteLabel, tipoInfracionLabelp, infractorLabel;
 
-    private Checkbox infraccionCamara, infracionOrdinaria;
+    private Checkbox infraccionCamaraChecbox, infraccionOrdinariaChecbox;
 
 
     private InterfazMain interfazMain;
@@ -52,11 +55,11 @@ public class Informacion extends JPanel {
         JPanel seleccionInfraccion = new JPanel();
         seleccionInfraccion.setLayout(new GridLayout(1,1));
 
-        infraccionCamara = new Checkbox("Infraccion camara");
-        infracionOrdinaria = new Checkbox("Infraccion ordinaria");
+        infraccionCamaraChecbox = new Checkbox("Infraccion camara");
+        infraccionOrdinariaChecbox = new Checkbox("Infraccion ordinaria");
 
-        seleccionInfraccion.add(infraccionCamara);
-        seleccionInfraccion.add(infracionOrdinaria);
+        seleccionInfraccion.add(infraccionCamaraChecbox);
+        seleccionInfraccion.add(infraccionOrdinariaChecbox);
 
         //panel infraccion camara
         Border borde2 = BorderFactory.createTitledBorder("");
@@ -91,8 +94,6 @@ public class Informacion extends JPanel {
 
         infraccionCamara.add(panelIzquierda2, BorderLayout.WEST);
         infraccionCamara.add(panelDerecha2, BorderLayout.CENTER);
-
-
 
         //panel infraccion ordinaria
 
@@ -132,6 +133,48 @@ public class Informacion extends JPanel {
         tipoInfracion.add(infraccionCamara, BorderLayout.WEST);
         tipoInfracion.add(infraccionOrdinaria, BorderLayout.EAST);
 
+        infraccionCamaraChecbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                boolean seleccionado = e.getStateChange() == ItemEvent.SELECTED;
+                gestionarCheckboxInfraccionCamara(seleccionado);
+            }
+        });
+
+        infraccionOrdinariaChecbox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                boolean seleccionado = e.getStateChange() == ItemEvent.SELECTED;
+                gestionarCheckboxInfraccionOrdinaria(seleccionado);
+            }
+        });
+
     }
+
+    private void gestionarCheckboxInfraccionCamara(boolean seleccionado) {
+        infraccionOrdinariaChecbox.setEnabled(!seleccionado);
+        agente.setEnabled(!seleccionado);
+        tipoInfracionp.setEnabled(!seleccionado);
+        infractor.setEnabled(!seleccionado);
+        agenteLabel.setForeground(seleccionado ? Color.GRAY : Color.BLACK);
+        tipoInfracionLabelp.setForeground(seleccionado ? Color.GRAY : Color.BLACK);
+        infractorLabel.setForeground(seleccionado ? Color.GRAY : Color.BLACK);
+    }
+
+    private void gestionarCheckboxInfraccionOrdinaria(boolean seleccionado) {
+        infraccionCamaraChecbox.setEnabled(!seleccionado);
+        idCamara.setEnabled(!seleccionado);
+        operador.setEnabled(!seleccionado);
+        velocidad.setEnabled(!seleccionado);
+        placa.setEnabled(!seleccionado);
+        idCamaraLabel.setForeground(seleccionado ? Color.GRAY : Color.BLACK);
+        operadorLabel.setForeground(seleccionado ? Color.GRAY : Color.BLACK);
+        velocidadLabel.setForeground(seleccionado ? Color.GRAY : Color.BLACK);
+        placaLabel.setForeground(seleccionado ? Color.GRAY : Color.BLACK);
+    }
+
+
+
+
 
 }

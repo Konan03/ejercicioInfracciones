@@ -1,6 +1,8 @@
 package servicios;
 
 import model.Infraccion;
+import model.InfraccionCamara;
+import model.InfraccionOrdinaria;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +18,14 @@ public class ServicioInfracciones {
     public static double calcularTotalInfracciones() {
         double total = 0;
         for (Infraccion infra: infracciones){
-            total = total + infra.getValor();
+            if(infra instanceof InfraccionCamara){
+                total = total + (infra.getValor() * 0.9);
+            }else if(infra instanceof InfraccionOrdinaria){
+                total = total + (infra.getValor() * 0.95);
+            }else{
+                total = total + infra.getValor();
+            }
+
         }
         return total;
     }

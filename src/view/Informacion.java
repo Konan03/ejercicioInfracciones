@@ -66,7 +66,7 @@ public class Informacion extends JPanel {
         JPanel panelIzquierda2 = new JPanel(new GridLayout(4,1));
         JPanel panelDerecha2 = new JPanel(new GridLayout(4,1));
 
-        idCamara = new JTextArea();
+        idCamara = new JTextArea(2,15);
         idCamara.setBorder(border);
         operador = new JTextArea();
         operador.setBorder(border);
@@ -102,7 +102,7 @@ public class Informacion extends JPanel {
         JPanel panelIzquierda3 = new JPanel(new GridLayout(4,1));
         JPanel panelDerecha3 = new JPanel(new GridLayout(4,1));
 
-        agente = new JTextArea();
+        agente = new JTextArea(2,15);
         agente.setBorder(border);
         tipoInfracionp = new JTextArea();
         tipoInfracionp.setBorder(border);

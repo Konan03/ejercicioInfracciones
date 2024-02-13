@@ -59,11 +59,12 @@ public class Informacion extends JPanel {
         seleccionInfraccion.add(infracionOrdinaria);
 
         //panel infraccion camara
+        Border borde2 = BorderFactory.createTitledBorder("");
         JPanel infraccionCamara = new JPanel();
         infraccionCamara.setLayout(new BorderLayout());
+        infraccionCamara.setBorder(borde2);
         JPanel panelIzquierda2 = new JPanel(new GridLayout(4,1));
         JPanel panelDerecha2 = new JPanel(new GridLayout(4,1));
-        infraccionCamara.setBorder(borde);
 
         idCamara = new JTextArea();
         idCamara.setBorder(border);
@@ -89,14 +90,15 @@ public class Informacion extends JPanel {
         panelDerecha2.add(placa);
 
         infraccionCamara.add(panelIzquierda2, BorderLayout.WEST);
-        infraccionCamara.add(panelDerecha2, BorderLayout.EAST);
+        infraccionCamara.add(panelDerecha2, BorderLayout.CENTER);
 
-        //revisar, cuando descomento el panel de la infraccion camara desaparece
+
 
         //panel infraccion ordinaria
-        /*
+
         JPanel infraccionOrdinaria = new JPanel();
-        infraccionCamara.setLayout(new BorderLayout());
+        infraccionOrdinaria.setLayout(new BorderLayout());
+        infraccionOrdinaria.setBorder(borde2);
         JPanel panelIzquierda3 = new JPanel(new GridLayout(4,1));
         JPanel panelDerecha3 = new JPanel(new GridLayout(4,1));
 
@@ -119,18 +121,16 @@ public class Informacion extends JPanel {
         panelDerecha3.add(infractor);
 
         infraccionOrdinaria.add(panelIzquierda3, BorderLayout.WEST);
-        infraccionOrdinaria.add(panelDerecha3, BorderLayout.EAST);
+        infraccionOrdinaria.add(panelDerecha3, BorderLayout.CENTER);
 
-
-         */
         //add
-        tipoInfracion.add(seleccionInfraccion, BorderLayout.NORTH);
-        tipoInfracion.add(infraccionCamara, BorderLayout.WEST);
-        //tipoInfracion.add(infraccionOrdinaria, BorderLayout.EAST);
-
         add(panelIzquierda, BorderLayout.WEST);
         add(panelDerecha, BorderLayout.CENTER);
         add(tipoInfracion, BorderLayout.SOUTH);
+
+        tipoInfracion.add(seleccionInfraccion, BorderLayout.NORTH);
+        tipoInfracion.add(infraccionCamara, BorderLayout.WEST);
+        tipoInfracion.add(infraccionOrdinaria, BorderLayout.EAST);
 
     }
 

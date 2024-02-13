@@ -16,7 +16,10 @@ public class Informacion extends JPanel {
 
         Border borde = BorderFactory.createTitledBorder("Datos");
         setBorder( borde);
-        setLayout(new GridLayout(7,2));
+        setLayout(new BorderLayout());
+
+        JPanel panelIzquierda = new JPanel(new GridLayout(7,1));
+        JPanel panelDerecha = new JPanel(new GridLayout(7,1));
 
         id = new JTextArea();
         valor = new JTextArea();
@@ -26,29 +29,41 @@ public class Informacion extends JPanel {
         velocidad = new JTextArea();
         placa = new JTextArea();
 
+        Border border = BorderFactory.createTitledBorder("");
+        id.setBorder(border);
+        valor.setBorder(border);
+        descripcion.setBorder(border);
+        idCamara.setBorder(border);
+        operador.setBorder(border);
+        velocidad.setBorder(border);
+        placa.setBorder(border);
+
         idLabel = new JLabel("Id");
         valorLabel = new JLabel("Valor");
         descripcionLabel = new JLabel("Descripcion");
         idCamaraLabel = new JLabel("IdCamara");
         operadorLabel = new JLabel("Operador");
-        velocidadLabel = new JLabel("Velocidad (Km/h)");
+        velocidadLabel = new JLabel("<html>Velocidad<br>(Km/h)</html>");
         placaLabel = new JLabel("Placa");
 
-        add(idLabel);
-        add(valorLabel);
-        add(descripcionLabel);
-        add(idCamaraLabel);
-        add(operadorLabel);
-        add(velocidadLabel);
-        add(placaLabel);
-        add(id);
-        add(valor);
-        add(descripcion);
-        add(idCamara);
-        add(operador);
-        add(velocidad);
-        add(placa);
+        panelIzquierda.add(idLabel);
+        panelIzquierda.add(valorLabel);
+        panelIzquierda.add(descripcionLabel);
+        panelIzquierda.add(idCamaraLabel);
+        panelIzquierda.add(operadorLabel);
+        panelIzquierda.add(velocidadLabel);
+        panelIzquierda.add(placaLabel);
 
+        panelDerecha.add(id);
+        panelDerecha.add(valor);
+        panelDerecha.add(descripcion);
+        panelDerecha.add(idCamara);
+        panelDerecha.add(operador);
+        panelDerecha.add(velocidad);
+        panelDerecha.add(placa);
+
+        add(panelIzquierda, BorderLayout.WEST);
+        add(panelDerecha, BorderLayout.CENTER);
 
     }
 

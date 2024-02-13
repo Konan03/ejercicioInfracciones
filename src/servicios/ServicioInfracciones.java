@@ -9,6 +9,8 @@ import java.util.List;
 
 public class ServicioInfracciones {
 
+    public static final double DESCUENTO_CAMARA = 0.9;
+    public static final double DESCUENTO_ORDINARIA = 0.95;
     private static List<Infraccion> infracciones = new ArrayList<>();
 
     public static void addInfraccion(Infraccion infraccion) {
@@ -19,9 +21,9 @@ public class ServicioInfracciones {
         double total = 0;
         for (Infraccion infra: infracciones){
             if(infra instanceof InfraccionCamara){
-                total = total + (infra.getValor() * 0.9);
+                total = total + (infra.getValor() * DESCUENTO_CAMARA);
             }else if(infra instanceof InfraccionOrdinaria){
-                total = total + (infra.getValor() * 0.95);
+                total = total + (infra.getValor() * DESCUENTO_ORDINARIA);
             }else{
                 total = total + infra.getValor();
             }

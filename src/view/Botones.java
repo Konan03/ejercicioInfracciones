@@ -17,7 +17,8 @@ public class Botones extends JPanel implements ActionListener {
     private InterfazMain interfazMain;
     private Informacion informacion;
 
-    public Botones (){
+    public Botones (Informacion informacion){
+        this.informacion = informacion;
 
         Border borde = BorderFactory.createTitledBorder("");
         setBorder( borde);
@@ -46,7 +47,7 @@ public class Botones extends JPanel implements ActionListener {
         String actionCommand = e.getActionCommand();
 
         if (actionCommand.equals(AGREGAR_MULTA)) {
-            informacion.guardarInfracion();
+            informacion.guardarInfraccion();
         }
         if (actionCommand.equals(MOSTAR_MULTAS)) {
             informacion.mostrarInfracciones();

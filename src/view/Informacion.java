@@ -179,7 +179,8 @@ public class Informacion extends JPanel {
         placaLabel.setForeground(seleccionado ? Color.GRAY : Color.BLACK);
     }
 
-    public void guardarInfracion() {
+
+    public void guardarInfraccion() {
         if (infraccionCamaraChecbox.getState() || infraccionOrdinariaChecbox.getState()) {
             String idTexto = null;
             String valorTexto = null;
@@ -192,10 +193,10 @@ public class Informacion extends JPanel {
             String tipoInfraccionTexto = null;
             String infractorTexto = null;
 
-            if(infraccionOrdinariaChecbox.getState()){
-                idTexto = idCamara.getText();
+            if(infraccionCamaraChecbox.getState()){
+                idTexto = id.getText();
                 valorTexto = valor.getText();
-                descripcionTexto = placa.getText();
+                descripcionTexto = descripcion.getText();
                 idcamaraTexto = idCamara.getText();
                 operadorTexto = operador.getText();
                 velocidadTexto = velocidad.getText();
@@ -212,11 +213,11 @@ public class Informacion extends JPanel {
             if (!idTexto.isEmpty() && !valorTexto.isEmpty() && !descripcionTexto.isEmpty()){
                 try {
                     double valorInfraccion = Double.parseDouble(valorTexto);
-                    int camaraId = Integer.parseInt(idcamaraTexto);
                     int id = Integer.parseInt(idTexto);
-                    double velocidadInfraccion = Double.parseDouble(velocidadTexto);
                     Infraccion infra;
                     if(infraccionCamaraChecbox.getState()){
+                        int camaraId = Integer.parseInt(idcamaraTexto);
+                        double velocidadInfraccion = Double.parseDouble(velocidadTexto);
                         infra = new InfraccionCamara(id, LocalDate.now() ,valorInfraccion, descripcionTexto, camaraId, operadorTexto, velocidadInfraccion, placaTexto );
                     } else {
                         infra = new InfraccionOrdinaria(id, LocalDate.now() ,valorInfraccion, descripcionTexto, agenteTexto, tipoInfraccionTexto, infractorTexto);
@@ -242,7 +243,7 @@ public class Informacion extends JPanel {
     }
 
     public void aplicarDescuento(){
-        ServicioInfracciones.calcularTotalInfracciones();
+        System.out.println(ServicioInfracciones.calcularTotalInfracciones());
     }
 
 }

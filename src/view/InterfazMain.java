@@ -19,7 +19,7 @@ public class InterfazMain extends JFrame {
         add(banner, BorderLayout.NORTH);
         informacion = new Informacion();
         add(informacion, BorderLayout.CENTER);
-        botones = new Botones();
+        botones = new Botones(informacion);
         add(botones, BorderLayout.SOUTH);
     }
 

@@ -68,10 +68,10 @@ public class Informacion extends JPanel {
         seleccionInfraccion.add(infraccionOrdinariaChecbox);
 
         //panel infraccion camara
-        Border borde2 = BorderFactory.createTitledBorder("");
+        //Border borde2 = BorderFactory.createTitledBorder("");
         JPanel infraccionCamara = new JPanel();
         infraccionCamara.setLayout(new BorderLayout());
-        infraccionCamara.setBorder(borde2);
+        //infraccionCamara.setBorder(borde2);
         JPanel panelIzquierda2 = new JPanel(new GridLayout(4,1));
         JPanel panelDerecha2 = new JPanel(new GridLayout(4,1));
 
@@ -105,7 +105,7 @@ public class Informacion extends JPanel {
 
         JPanel infraccionOrdinaria = new JPanel();
         infraccionOrdinaria.setLayout(new BorderLayout());
-        infraccionOrdinaria.setBorder(borde2);
+        //infraccionOrdinaria.setBorder(borde2);
         JPanel panelIzquierda3 = new JPanel(new GridLayout(4,1));
         JPanel panelDerecha3 = new JPanel(new GridLayout(4,1));
 

@@ -1,10 +1,16 @@
 package view;
 
+import model.Infraccion;
+import model.InfraccionCamara;
+import model.InfraccionOrdinaria;
+import servicios.ServicioInfracciones;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.time.LocalDate;
 
 
 public class Informacion extends JPanel {
@@ -173,8 +179,70 @@ public class Informacion extends JPanel {
         placaLabel.setForeground(seleccionado ? Color.GRAY : Color.BLACK);
     }
 
+    public void guardarInfracion() {
+        if (infraccionCamaraChecbox.getState() || infraccionOrdinariaChecbox.getState()) {
+            String idTexto = null;
+            String valorTexto = null;
+            String descripcionTexto = null;
+            String idcamaraTexto = null;
+            String operadorTexto = null;
+            String velocidadTexto = null;
+            String placaTexto = null;
+            String agenteTexto = null;
+            String tipoInfraccionTexto = null;
+            String infractorTexto = null;
 
+            if(infraccionOrdinariaChecbox.getState()){
+                idTexto = idCamara.getText();
+                valorTexto = valor.getText();
+                descripcionTexto = placa.getText();
+                idcamaraTexto = idCamara.getText();
+                operadorTexto = operador.getText();
+                velocidadTexto = velocidad.getText();
+                placaTexto = placa.getText();
+            } else {
+                idTexto = id.getText();
+                valorTexto = valor.getText();
+                descripcionTexto = descripcion.getText();
+                agenteTexto = agente.getText();
+                tipoInfraccionTexto = tipoInfracionp.getText();
+                infractorTexto = infractor.getText();
+            }
 
+            if (!idTexto.isEmpty() && !valorTexto.isEmpty() && !descripcionTexto.isEmpty()){
+                try {
+                    double valorInfraccion = Double.parseDouble(valorTexto);
+                    int camaraId = Integer.parseInt(idcamaraTexto);
+                    int id = Integer.parseInt(idTexto);
+                    double velocidadInfraccion = Double.parseDouble(velocidadTexto);
+                    Infraccion infra;
+                    if(infraccionCamaraChecbox.getState()){
+                        infra = new InfraccionCamara(id, LocalDate.now() ,valorInfraccion, descripcionTexto, camaraId, operadorTexto, velocidadInfraccion, placaTexto );
+                    } else {
+                        infra = new InfraccionOrdinaria(id, LocalDate.now() ,valorInfraccion, descripcionTexto, agenteTexto, tipoInfraccionTexto, infractorTexto);
+                    }
 
+                    ServicioInfracciones.addInfraccion(infra);
+
+                    JOptionPane.showMessageDialog(this, "Infracción agregada correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+                }catch (Exception e){
+                    JOptionPane.showMessageDialog(this, "Error: El valor ingresado no es válido.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Error: Todos los campos son obligatorios.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Error: Debes seleccionar un tipo de infracción.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void mostrarInfracciones() {
+        ServicioInfracciones.printInfracciones();
+    }
+
+    public void aplicarDescuento(){
+        ServicioInfracciones.calcularTotalInfracciones();
+    }
 
 }

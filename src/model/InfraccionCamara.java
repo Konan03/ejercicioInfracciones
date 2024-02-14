@@ -52,12 +52,13 @@ public class InfraccionCamara extends Infraccion{
 
     @Override
     public String toString() {
-        return "InfraccionCamara{" +
-                super.toString() + " " +
-                "idCamara=" + idCamara +
-                ", operador='" + operador + '\'' +
-                ", velocidad=" + velocidad +
-                ", placa='" + placa + '\'' +
+        return "InfraccionCamara{" + "\n" +
+                "    " + super.toString() + "," + "\n" +
+                "    idCamara=" + idCamara + "," + "\n" +
+                "    operador='" + operador + '\'' + "," + "\n" +
+                "    velocidad=" + velocidad + "," + "\n" +
+                "    placa='" + placa + '\'' + "\n" +
                 '}';
     }
+
 }

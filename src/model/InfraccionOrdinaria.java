@@ -40,11 +40,11 @@ public class InfraccionOrdinaria extends Infraccion{
 
     @Override
     public String toString() {
-        return "InfraccionOrdinaria{" +
-                super.toString() + " " +
-                "agente='" + agente + '\'' +
-                ", tipoInfracion='" + tipoInfracion + '\'' +
-                ", infractor='" + infractor + '\'' +
+        return "InfraccionOrdinaria{" + "\n" +
+                "    " + super.toString() + "," + "\n" +
+                "    agente='" + agente + '\'' + "," + "\n" +
+                "    tipoInfraccion='" + tipoInfracion + '\'' + ","+ "\n" +
+                "    infractor='" + infractor + '\'' + "\n" +
                 '}';
     }
 }

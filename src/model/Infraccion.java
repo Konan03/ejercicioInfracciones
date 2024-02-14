@@ -50,11 +50,12 @@ public abstract class Infraccion {
 
     @Override
     public String toString() {
-        return "Infraccion{" +
-                "id=" + id +
-                ", fecha=" + fecha +
-                ", valor=" + valor +
-                ", descripcion='" + descripcion + '\'' +
+        return "Infraccion{" + "\n" +
+                "    id=" + id + "," + "\n" +
+                "    fecha=" + fecha + "," + "\n" +
+                "    valor=" + valor + "," + "\n" +
+                "    descripcion='" + descripcion + '\'' + "\n" +
                 '}';
     }
+
 }

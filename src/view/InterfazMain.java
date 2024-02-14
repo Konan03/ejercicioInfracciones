@@ -14,6 +14,8 @@ public class InterfazMain extends JFrame {
         setSize(500,700);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
+        setResizable(false);
+        setLocationRelativeTo(null);
 
         banner = new Banner();
         add(banner, BorderLayout.NORTH);

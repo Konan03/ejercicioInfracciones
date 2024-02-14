@@ -19,15 +19,9 @@ public class ServicioInfracciones {
 
     public static double calcularTotalInfracciones() {
         double total = 0;
-        for (Infraccion infra: infracciones){
-            if(infra instanceof InfraccionCamara){
-                total = total + (infra.getValor() * DESCUENTO_CAMARA);
-            }else if(infra instanceof InfraccionOrdinaria){
-                total = total + (infra.getValor() * DESCUENTO_ORDINARIA);
-            }else{
-                total = total + infra.getValor();
-            }
-
+        for (Infraccion infra: infracciones)
+        {
+          total = total + ((1- infra.getDescuento())*infra.getValor());
         }
         return total;
     }

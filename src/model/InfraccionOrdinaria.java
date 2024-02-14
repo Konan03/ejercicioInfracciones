@@ -14,6 +14,13 @@ public class InfraccionOrdinaria extends Infraccion{
         this.infractor = infractor;
     }
 
+    public InfraccionOrdinaria(int id, LocalDate fecha, double valor, String descripcion, double descuento, String agente, String tipoInfracion, String infractor) {
+        super(id, fecha, valor, descripcion, descuento);
+        this.agente = agente;
+        this.tipoInfracion = tipoInfracion;
+        this.infractor = infractor;
+    }
+
     public String getAgente() {
         return agente;
     }

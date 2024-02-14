@@ -18,6 +18,14 @@ public class InfraccionCamara extends Infraccion{
         this.placa = placa;
     }
 
+    public InfraccionCamara(int id, LocalDate fecha, double valor, String descripcion, double descuento, int idCamara, String operador, double velocidad, String placa) {
+        super(id, fecha, valor, descripcion, descuento);
+        this.idCamara = idCamara;
+        this.operador = operador;
+        this.velocidad = velocidad;
+        this.placa = placa;
+    }
+
     public int getIdCamara() {
         return idCamara;
     }

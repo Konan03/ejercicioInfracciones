@@ -7,6 +7,7 @@ public abstract class Infraccion {
     private LocalDate fecha;
     private double valor;
     private String descripcion;
+    private double descuento;
 
 
     public Infraccion(int id, LocalDate fecha, double valor, String descripcion) {
@@ -15,6 +16,15 @@ public abstract class Infraccion {
         this.valor = valor;
         this.descripcion = descripcion;
     }
+
+    public Infraccion(int id, LocalDate fecha, double valor, String descripcion, double descuento) {
+        this.id = id;
+        this.fecha = fecha;
+        this.valor = valor;
+        this.descripcion = descripcion;
+        this.descuento = descuento;
+    }
+
 
     public int getId() {
         return id;
@@ -48,6 +58,14 @@ public abstract class Infraccion {
         this.descripcion = descripcion;
     }
 
+    public double getDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(double descuento) {
+        this.descuento = descuento;
+    }
+
     @Override
     public String toString() {
         return "Infraccion{" + "\n" +
@@ -57,5 +75,7 @@ public abstract class Infraccion {
                 "    descripcion='" + descripcion + '\'' + "\n" +
                 '}';
     }
+
+
 
 }

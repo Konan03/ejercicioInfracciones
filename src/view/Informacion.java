@@ -31,6 +31,8 @@ public class Informacion extends JPanel {
         setLayout(new BorderLayout());
 
         Border border = BorderFactory.createTitledBorder("");
+        Font font = new Font("Arial", Font.PLAIN, 20);
+        Font font2 = new Font("Arial", Font.PLAIN, 15);
 
         // datos infracion
         JPanel panelIzquierda = new JPanel(new GridLayout(3,1));
@@ -38,13 +40,19 @@ public class Informacion extends JPanel {
 
         id = new JTextArea();
         id.setBorder(border);
+        id.setFont(font);
         valor = new JTextArea();
         valor.setBorder(border);
+        valor.setFont(font);
         descripcion = new JTextArea();
         descripcion.setBorder(border);
+        descripcion.setFont(font);
         idLabel = new JLabel("Id");
+        idLabel.setFont(font);
         valorLabel = new JLabel("Valor");
+        valorLabel.setFont(font);
         descripcionLabel = new JLabel("Descripcion");
+        descripcionLabel.setFont(font);
 
         panelIzquierda.add(idLabel);
         panelIzquierda.add(valorLabel);
@@ -64,6 +72,9 @@ public class Informacion extends JPanel {
         infraccionCamaraChecbox = new Checkbox("Infraccion camara");
         infraccionOrdinariaChecbox = new Checkbox("Infraccion ordinaria");
 
+        infraccionCamaraChecbox.setFont(font);
+        infraccionOrdinariaChecbox.setFont(font);
+
         seleccionInfraccion.add(infraccionCamaraChecbox);
         seleccionInfraccion.add(infraccionOrdinariaChecbox);
 
@@ -77,12 +88,16 @@ public class Informacion extends JPanel {
 
         idCamara = new JTextArea(2,15);
         idCamara.setBorder(border);
+        idCamara.setFont(font2);
         operador = new JTextArea();
         operador.setBorder(border);
+        operador.setFont(font2);
         velocidad = new JTextArea();
         velocidad.setBorder(border);
+        velocidad.setFont(font2);
         placa = new JTextArea();
         placa.setBorder(border);
+        placa.setFont(font2);
 
         idCamaraLabel = new JLabel("IdCamara");
         operadorLabel = new JLabel("Operador");
